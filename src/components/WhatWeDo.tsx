@@ -94,7 +94,7 @@ export default function WhatWeDo() {
 
         {/* Positioning statement */}
         <div
-          className="fade-in"
+          className="fade-in pillars-quote"
           style={{
             marginTop: "6rem",
             padding: "3.5rem",
@@ -147,7 +147,10 @@ export default function WhatWeDo() {
 
       <style>{`
         @media (max-width: 768px) {
-          .pillars-quote { grid-template-columns: 1fr !important; }
+          .pillars-quote {
+            grid-template-columns: 1fr !important;
+            padding: 2rem !important;
+          }
         }
       `}</style>
     </section>

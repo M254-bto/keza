@@ -121,7 +121,7 @@ export default function Packages() {
           {tiers.map((tier, i) => (
             <div
               key={tier.id}
-              className={`fade-in fade-in-delay-${i + 1}`}
+              className={`fade-in fade-in-delay-${i + 1} pkg-card`}
               style={{
                 padding: "3rem",
                 backgroundColor: tier.featured ? "var(--charcoal)" : "var(--white)",
@@ -264,7 +264,7 @@ export default function Packages() {
 
         {/* Signature card */}
         <div
-          className="fade-in"
+          className="fade-in signature-card"
           style={{
             padding: "3rem",
             backgroundColor: "var(--gold-pale)",
@@ -312,6 +312,24 @@ export default function Packages() {
           </div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .signature-card {
+            grid-template-columns: 1fr !important;
+          }
+          .signature-card > div:last-child {
+            justify-content: flex-start !important;
+          }
+        }
+        @media (max-width: 540px) {
+          #packages .pkg-card {
+            padding: 2rem !important;
+          }
+          .signature-card {
+            padding: 2rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

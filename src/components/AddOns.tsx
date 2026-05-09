@@ -32,6 +32,7 @@ export default function AddOns() {
     >
       <div className="container">
         <div
+          className="addons-grid-outer"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 2fr",
@@ -70,6 +71,7 @@ export default function AddOns() {
 
           {/* Right: grid */}
           <div
+            className="addons-grid-inner"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -133,8 +135,22 @@ export default function AddOns() {
 
       <style>{`
         @media (max-width: 900px) {
-          .addons-grid-outer { grid-template-columns: 1fr !important; gap: 3rem !important; }
-          .addons-grid-inner { grid-template-columns: 1fr !important; }
+          .addons-grid-outer {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+          }
+          .addons-grid-inner {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        @media (max-width: 540px) {
+          .addons-grid-inner {
+            grid-template-columns: 1fr !important;
+          }
+          /* Remove odd-item right border when stacked to 1 col */
+          .addons-grid-inner > div {
+            border-right: none !important;
+          }
         }
       `}</style>
     </section>

@@ -42,6 +42,7 @@ export default function Contact() {
     >
       <div className="container">
         <div
+          className="contact-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1.4fr",
@@ -286,7 +287,16 @@ export default function Contact() {
 
       <style>{`
         @media (max-width: 900px) {
-          .contact-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .contact-grid {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+          }
+        }
+        @media (max-width: 540px) {
+          #contact .btn-primary {
+            width: 100%;
+            justify-content: center;
+          }
         }
       `}</style>
     </section>
@@ -306,6 +316,7 @@ const labelStyle: React.CSSProperties = {
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
+  boxSizing: "border-box",
   padding: "0.9rem 1rem",
   backgroundColor: "rgba(255,255,255,0.04)",
   border: "1px solid rgba(255,255,255,0.1)",

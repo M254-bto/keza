@@ -22,6 +22,7 @@ export default function Footer() {
       <div className="container">
         {/* Top row */}
         <div
+          className="footer-top"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr 1fr",
@@ -203,7 +204,16 @@ export default function Footer() {
 
       <style>{`
         @media (max-width: 800px) {
-          .footer-top { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+          .footer-top {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 2.5rem !important;
+          }
+        }
+        @media (max-width: 540px) {
+          .footer-top {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
         }
       `}</style>
     </footer>

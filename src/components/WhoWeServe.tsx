@@ -18,6 +18,7 @@ export default function WhoWeServe() {
     >
       <div className="container">
         <div
+          className="clients-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
@@ -136,7 +137,10 @@ export default function WhoWeServe() {
 
       <style>{`
         @media (max-width: 900px) {
-          .clients-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
+          .clients-grid {
+            grid-template-columns: 1fr !important;
+            gap: 3rem !important;
+          }
         }
       `}</style>
     </section>

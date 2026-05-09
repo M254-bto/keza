@@ -53,6 +53,7 @@ export default function WhyKeza() {
 
         {/* Differentiators */}
         <div
+          className="why-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(3, 1fr)",
@@ -134,6 +135,9 @@ export default function WhyKeza() {
 
       <style>{`
         @media (max-width: 900px) {
+          .why-grid { grid-template-columns: 1fr 1fr !important; }
+        }
+        @media (max-width: 600px) {
           .why-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

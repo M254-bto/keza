@@ -32,6 +32,7 @@ export default function HowItWorks() {
       <div className="container">
         {/* Header */}
         <div
+          className="process-header"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 2fr",
@@ -66,7 +67,7 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={`fade-in fade-in-delay-${i + 1}`}
+              className={`fade-in fade-in-delay-${i + 1} step-row`}
               style={{
                 display: "grid",
                 gridTemplateColumns: "80px 1fr 1fr",
@@ -93,7 +94,7 @@ export default function HowItWorks() {
                 {step.title}
               </h3>
               {/* Body */}
-              <p className="t-body">{step.body}</p>
+              <p className="t-body step-body">{step.body}</p>
             </div>
           ))}
           <div style={{ borderTop: "1px solid var(--smoke)" }} />
@@ -144,11 +145,19 @@ export default function HowItWorks() {
 
       <style>{`
         @media (max-width: 900px) {
-          .process-header { grid-template-columns: 1fr !important; }
+          .process-header {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+            margin-bottom: 3rem !important;
+          }
+          .process-header p { padding-top: 0 !important; }
         }
         @media (max-width: 700px) {
-          .step-row { grid-template-columns: 60px 1fr !important; }
-          .step-row .step-body { grid-column: 1 / -1; }
+          .step-row {
+            grid-template-columns: 60px 1fr !important;
+            gap: 1.5rem 1.5rem !important;
+          }
+          .step-body { grid-column: 1 / -1 !important; }
         }
       `}</style>
     </section>

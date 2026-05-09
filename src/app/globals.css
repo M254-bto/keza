@@ -229,3 +229,62 @@ body {
 
 /* ── Selection ────────────────────────────────────── */
 ::selection { background: var(--gold-pale); color: var(--ink); }
+
+/* ── Global Mobile Responsiveness ────────────────── */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  /* Tighten section vertical padding */
+  .section,
+  section[style] {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* Hero: reduce top padding so content isn't buried under nav */
+  #hero .container {
+    padding-top: 7rem !important;
+    padding-bottom: 5rem !important;
+  }
+
+  /* Packages header: tighter margin on mobile */
+  #packages .container > div:first-child {
+    margin-bottom: 3rem !important;
+  }
+
+  /* Reduce large decorative numbers so they don't overflow */
+  .t-display {
+    word-break: break-word;
+  }
+}
+
+@media (max-width: 480px) {
+  section[style] {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  #hero .container {
+    padding-top: 6rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Stack hero buttons vertically */
+  #hero .container > div:last-of-type {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Full-width buttons on very small screens */
+  #hero .btn-primary,
+  #hero .btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+}
