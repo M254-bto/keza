@@ -48,7 +48,7 @@ export default function WhoWeServe() {
               a life abroad, and who still has property, family and responsibilities at home.
               You need someone you can trust to act precisely in your absence.
             </p>
-            <div
+            {/* <div
               className="fade-in fade-in-delay-3"
               style={{
                 padding: "2rem 2.5rem",
@@ -69,7 +69,7 @@ export default function WhoWeServe() {
                 "At Keza, we structure our service into three levels depending on
                 how much you want handled and how fast you need it done."
               </p>
-            </div>
+            </div> */}
           </div>
 
           {/* Right: Secondary */}

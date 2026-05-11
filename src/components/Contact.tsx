@@ -22,14 +22,42 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/kezaconciergeglobal@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          ...form,
+          _subject: `New Request from ${form.name} - ${form.nature}`,
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to submit request.");
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error(err);
+      setError("An error occurred. Please try again or contact us via WhatsApp.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -276,8 +304,19 @@ export default function Contact() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary" style={{ justifyContent: "center" }}>
-                  Submit Request
+                {error && (
+                  <div style={{ color: "var(--gold)", fontSize: "0.85rem", fontFamily: "var(--font-sans)" }}>
+                    {error}
+                  </div>
+                )}
+
+                <button 
+                  type="submit" 
+                  className="btn-primary" 
+                  style={{ justifyContent: "center", opacity: loading ? 0.7 : 1, cursor: loading ? "not-allowed" : "pointer" }}
+                  disabled={loading}
+                >
+                  {loading ? "Sending..." : "Submit Request"}
                 </button>
               </form>
             )}

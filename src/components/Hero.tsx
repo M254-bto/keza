@@ -92,7 +92,7 @@ export default function Hero() {
           }}
         >
           A private concierge company that verifies, executes and protects
-          your interests — precisely, discreetly and accountably — when you
+          your interest precisely, discreetly and accountably, when you
           are not physically present.
         </p>
 
